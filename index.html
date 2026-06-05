@@ -31,7 +31,7 @@
         <p class="hero-sub">
           Simulações por cartela de cores, dossiê capilar automático e PDF com sua logo. Tudo gerado por IA, treinada com as 12 cartelas do método sazonal expandido.
         </p>
-        <a href="#pricing" class="btn btn-gold">Quero Começar Agora</a>
+        <a href="https://wa.me/5500000000000?text=Quero%20adquirir%20a%20plataforma%20MS%20Color%20IA" target="_blank" rel="noopener" class="btn btn-gold">Quero Começar Agora</a>
         <div class="hero-stats">
           <div>
             <div class="stat-num">12</div>
@@ -49,20 +49,18 @@
       </div>
 
       <div class="hero-visual">
-        <!-- 
-          ════════════════════════════════════
-          📸 IMAGEM / VÍDEO — HERO
-          ════════════════════════════════════
-          SUGESTÃO: Vídeo em loop ou GIF da 
-          tela da plataforma gerando cabelos
-          em tempo real (gravação de tela)
-          Formato ideal: 9:16 (vertical)
-          ════════════════════════════════════
-        -->
-        <div class="visual-placeholder">
-          <div class="visual-icon">▶</div>
-          <div>Vídeo da plataforma<br>gerando simulações<br>em tempo real</div>
-        </div>
+        <video
+          id="hero-video"
+          class="hero-video-player"
+          controls
+          autoplay
+          playsinline
+          preload="auto"
+          style="width:100%; height:100%; object-fit:cover; border-radius:4px; display:block;"
+        >
+          <source src="assets/img/Video 2.mov" type="video/quicktime">
+          <source src="assets/img/Video 2.mov" type="video/mp4">
+        </video>
         <div class="visual-tag">MS Color IA</div>
       </div>
     </div>
@@ -137,42 +135,6 @@
   </div>
 </section>
 
-<!-- ─── HOW IT WORKS ─── -->
-<section id="how" class="section">
-  <div class="container">
-    <span class="label text-center">Como funciona</span>
-    <h2 class="serif text-center reveal" style="font-size:clamp(32px,4vw,48px); color:var(--white);">3 passos. Resultado perfeito.</h2>
-    <div class="steps reveal">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-title serif">Envie a foto</div>
-        <p class="step-desc">Coloque a foto da cliente na plataforma. Pode ser enviada pelo WhatsApp.</p>
-        <div class="step-img">
-          <!-- 📸 Print da tela: tela de upload da foto -->
-          Print: tela de upload da foto
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-title serif">Selecione a cartela</div>
-        <p class="step-desc">Após sua análise profissional, selecione a cartela de cores da cliente.</p>
-        <div class="step-img">
-          <!-- 📸 Print da tela: seleção da cartela -->
-          Print: seleção de cartela
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-title serif">Gere e entregue</div>
-        <p class="step-desc">A IA gera as simulações e o PDF com sua logo em segundos. Pronto para entregar.</p>
-        <div class="step-img">
-          <!-- 📸 Print da tela: PDF gerado -->
-          Print: PDF sendo gerado
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ─── DEMO VIDEO ─── -->
 <section id="demo" class="section" style="background:var(--dark2);">
@@ -242,38 +204,25 @@
 <section id="comparison" class="section" style="background:var(--dark2);">
   <div class="container">
     <h2 class="comparison-title serif reveal">Antes e depois da MS Color IA.</h2>
-    <div class="reveal comparison-table-wrap">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Sem a MS Color IA</th>
-            <th>✦ Com a MS Color IA</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="cross">✕</span> Mais de 1 hora por dossiê</td>
-            <td><span class="check">✦</span> Menos de 15 minutos por atendimento</td>
-          </tr>
-          <tr>
-            <td><span class="cross">✕</span> Prompts manuais em IAs genéricas</td>
-            <td><span class="check">✦</span> IA treinada especificamente para colorimetria</td>
-          </tr>
-          <tr>
-            <td><span class="cross">✕</span> PDF montado na mão</td>
-            <td><span class="check">✦</span> PDF automático com sua logo</td>
-          </tr>
-          <tr>
-            <td><span class="cross">✕</span> Fins de semana produzindo material</td>
-            <td><span class="check">✦</span> Tempo de volta para você e sua família</td>
-          </tr>
-          <tr>
-            <td><span class="cross">✕</span> Insegurança na indicação</td>
-            <td><span class="check">✦</span> Método visual e replicável</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="reveal comparison-cards">
+      <div class="comparison-col comparison-col-before">
+        <div class="comparison-col-header">Sem a MS Color IA</div>
+        <div class="comparison-row-item"><span class="cross">✕</span> Mais de 1 hora por dossiê</div>
+        <div class="comparison-row-item"><span class="cross">✕</span> Prompts manuais em IAs genéricas</div>
+        <div class="comparison-row-item"><span class="cross">✕</span> PDF montado na mão</div>
+        <div class="comparison-row-item"><span class="cross">✕</span> Fins de semana produzindo material</div>
+        <div class="comparison-row-item"><span class="cross">✕</span> Insegurança na indicação</div>
+      </div>
+      <div class="comparison-col comparison-col-after">
+        <div class="comparison-col-header">✦ Com a MS Color IA</div>
+        <div class="comparison-row-item"><span class="check">✦</span> Menos de 15 minutos por atendimento</div>
+        <div class="comparison-row-item"><span class="check">✦</span> IA treinada especificamente para colorimetria</div>
+        <div class="comparison-row-item"><span class="check">✦</span> PDF automático com sua logo</div>
+        <div class="comparison-row-item"><span class="check">✦</span> Tempo de volta para você e sua família</div>
+        <div class="comparison-row-item"><span class="check">✦</span> Método visual e replicável</div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -290,19 +239,7 @@
         <span class="testimonial-role">Consultora de Imagem -  Usuária MS Color IA</span>
       </div>
       <div class="whatsapp-img">
-        <!-- 
-          ════════════════════════════════════
-          📸 PRINT — DEPOIMENTO WHATSAPP
-          ════════════════════════════════════
-          SUGESTÃO: Print da conversa do 
-          WhatsApp com a Érica Fernandes
-          exatamente como você recebeu.
-          ════════════════════════════════════
-        -->
-        <div class="visual-placeholder" style="min-height:180px;">
-          <div class="visual-icon">💬</div>
-          <div>Print do WhatsApp<br>da Érica Fernandes</div>
-        </div>
+        <img src="assets/img/depoimento.png" alt="Depoimento Érica Fernandes" style="width:100%; max-width:480px; border-radius:4px; display:block; margin:0 auto;">
       </div>
     </div>
   </div>
@@ -320,7 +257,7 @@
 
       <!-- PRODUTO 1 -->
       <div class="product-card">
-        <p class="product-eyebrow"></p>
+        <p class="product-eyebrow">Produto 01</p>
         <h3 class="product-name serif">MS Color <span class="gold">IA</span></h3>
         <p class="product-desc">Simulações de cabelo por cartela com IA + mini dossiê capilar automático + PDF com sua logo.</p>
 
@@ -366,7 +303,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$117/mês</div>
                 <div class="plan-price">R$99<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$1.188 à vista</div>
+                
               </div>
             </div>
             <div class="plan-option" onclick="selectPlanOption(this)">
@@ -377,7 +314,6 @@
               <div class="plan-right">
                 <div class="plan-orig">R$137/mês</div>
                 <div class="plan-price">R$116<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$1.392 à vista</div>
               </div>
             </div>
             <div class="plan-option popular" onclick="selectPlanOption(this)">
@@ -388,7 +324,6 @@
               <div class="plan-right">
                 <div class="plan-orig">R$187/mês</div>
                 <div class="plan-price gold-price">R$159<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$1.908 à vista</div>
               </div>
             </div>
           </div>
@@ -398,13 +333,13 @@
           <li>Mini dossiê capilar automático</li>
           <li>PDF com sua logo (mini dossiê)</li>
         </ul>
-        <a href="#" class="btn btn-outline" style="width:100%; text-align:center; display:block;">Começar com MS Color IA</a>
+        <a href="https://wa.me/5500000000000?text=Quero%20adquirir%20a%20plataforma%20MS%20Color%20IA" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%; text-align:center; display:block;">Começar com MS Color IA</a>
       </div>
 
       <!-- PRODUTO 2 -->
       <div class="product-card featured">
         <div class="product-badge">Mais Popular</div>
-        <p class="product-eyebrow"></p>
+        <p class="product-eyebrow">Produto 02</p>
         <h3 class="product-name serif">MS Color <em class="gold italic">Full IA</em></h3>
         <p class="product-desc">Simulações de cabelo + dossiê de coloração completo tudo que você precisa para encantar cada cliente.</p>
 
@@ -448,7 +383,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$147/mês</div>
                 <div class="plan-price">R$125<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$1.500 à vista</div>
+                
               </div>
             </div>
             <div class="plan-option" onclick="selectPlanOption(this)">
@@ -459,7 +394,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$177/mês</div>
                 <div class="plan-price">R$150<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$1.800 à vista</div>
+                
               </div>
             </div>
             <div class="plan-option popular" onclick="selectPlanOption(this)">
@@ -470,7 +405,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$227/mês</div>
                 <div class="plan-price gold-price">R$193<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$2.316 à vista</div>
+                
               </div>
             </div>
           </div>
@@ -484,13 +419,13 @@
           <li>Geração automática do dossiê com IA</li>
           <li>PDF brandado completo para entregar</li>
         </ul>
-        <a href="#" class="btn btn-gold" style="width:100%; text-align:center; display:block;">Quero o Full IA</a>
+        <a href="https://wa.me/5500000000000?text=Quero%20adquirir%20a%20plataforma%20MS%20Color%20Full%20IA" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%; text-align:center; display:block;">Quero o Full IA</a>
       </div>
 
       <!-- PRODUTO 3 -->
       <div class="product-card premium">
         <div class="product-badge product-badge-top">✦ Mais Completo</div>
-        <p class="product-eyebrow"></p>
+        <p class="product-eyebrow">Produto 03</p>
         <h3 class="product-name serif">MS Color <span class="gold">Premium</span></h3>
         <p class="product-desc">Tudo do Full IA + CRM automatizado, formulários, contratos e automações completas.</p>
 
@@ -534,7 +469,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$197/mês</div>
                 <div class="plan-price">R$167<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$2.004 à vista</div>
+                
               </div>
             </div>
             <div class="plan-option" onclick="selectPlanOption(this)">
@@ -545,7 +480,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$237/mês</div>
                 <div class="plan-price">R$201<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$2.412 à vista</div>
+                
               </div>
             </div>
             <div class="plan-option popular" onclick="selectPlanOption(this)">
@@ -556,7 +491,7 @@
               <div class="plan-right">
                 <div class="plan-orig">R$297/mês</div>
                 <div class="plan-price gold-price">R$252<span style="font-size:14px; font-weight:400">/mês</span></div>
-                <div class="plan-total">R$3.024 à vista</div>
+                
               </div>
             </div>
           </div>
@@ -575,7 +510,7 @@
           <li>Geração automática do dossiê com IA</li>
           <li>PDF brandado completo para entregar</li>
         </ul>
-        <a href="#" class="btn btn-outline btn-outline-premium" style="width:100%; text-align:center; display:block;">Quero a Plataforma Completa</a>
+        <a href="https://wa.me/5500000000000?text=Quero%20adquirir%20a%20plataforma%20MS%20Color%20Premium" target="_blank" rel="noopener" class="btn btn-outline btn-outline-premium" style="width:100%; text-align:center; display:block;">Quero a Plataforma Completa</a>
       </div>
 
     </div>
@@ -601,26 +536,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="cat-row"><td colspan="4">CRM & Gestão</td></tr>
-          <tr>
-            <td>CRM de clientes</td>
-            <td><span class="ci">✦</span></td>
-            <td class="col-featured"><span class="ci">✦</span></td>
-            <td><span class="ci">✦</span></td>
-          </tr>
-          <tr>
-            <td>Automações e contratos digitais</td>
-            <td><span class="ci">✦</span></td>
-            <td class="col-featured"><span class="ci">✦</span></td>
-            <td><span class="ci">✦</span></td>
-          </tr>
-          <tr>
-            <td>Atendimento online / remoto</td>
-            <td><span class="ci">✦</span></td>
-            <td class="col-featured"><span class="ci">✦</span></td>
-            <td><span class="ci">✦</span></td>
-          </tr>
-
           <tr class="cat-row"><td colspan="4">Simulações de Cabelo com IA</td></tr>
           <tr>
             <td>Simulações por cartela (12 cartelas)</td>
@@ -660,14 +575,33 @@
             <td class="col-featured"><span class="ci">✦</span></td>
             <td><span class="ci">✦</span></td>
           </tr>
+          <tr class="cat-row"><td colspan="4">CRM & Gestão</td></tr>
+          <tr>
+            <td>CRM de clientes</td>
+            <td><span class="cx">—</span></td>
+            <td class="col-featured"><span class="cx">—</span></td>
+            <td><span class="ci">✦</span></td>
+          </tr>
+          <tr>
+            <td>Automações e contratos digitais</td>
+            <td><span class="cx">—</span></td>
+            <td class="col-featured"><span class="cx">—</span></td>
+            <td><span class="ci">✦</span></td>
+          </tr>
+          <tr>
+            <td>Atendimento online / remoto</td>
+            <td><span class="cx">—</span></td>
+            <td class="col-featured"><span class="cx">—</span></td>
+            <td><span class="ci">✦</span></td>
+          </tr>
         </tbody>
       </table>
 
       <div class="comp-cta-row reveal">
         <div style="font-size:13px; color:var(--muted); line-height:1.7;">Todos os planos incluem suporte completo e acesso imediato. Cancele quando quiser.</div>
-        <div><a href="#" class="btn btn-outline" style="padding:12px 20px; font-size:11px; display:block;">MS Color IA</a></div>
-        <div><a href="#" class="btn btn-gold" style="padding:12px 20px; font-size:11px; display:block;">Full IA ⭐</a></div>
-        <div><a href="#" class="btn btn-outline" style="padding:12px 20px; font-size:11px; display:block;">Premium</a></div>
+        <div><a href="#pricing" class="btn btn-outline" style="padding:12px 20px; font-size:11px; display:block;">MS Color IA</a></div>
+        <div><a href="#pricing" class="btn btn-gold" style="padding:12px 20px; font-size:11px; display:block;">Full IA ⭐</a></div>
+        <div><a href="#pricing" class="btn btn-outline" style="padding:12px 20px; font-size:11px; display:block;">Premium</a></div>
       </div>
     </div>
   </div>
@@ -696,12 +630,8 @@
         <div class="faq-a">Sim. A plataforma foi feita exatamente para isso. Atenda de qualquer lugar, pelo celular, em qualquer país.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Qual o custo das simulações? <span>+</span></div>
-        <div class="faq-a">Cada imagem gerada tem custo médio de R$0,20, cobrado diretamente na sua conta da IA. O custo estimado por cliente é de até R$2,00 dependendo da quantidade de simulações geradas.</div>
-      </div>
-      <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Posso parcelar? <span>+</span></div>
-        <div class="faq-a">Sim. Todos os planos são parceláveis em até 12x com juros.</div>
+        <div class="faq-a">Sim. Os planos anuais são parceláveis em até 12x sem juros.</div>
       </div>
     </div>
   </div>
@@ -717,7 +647,7 @@
     </h2>
     <p class="final-sub reveal">A MS Color IA é a primeira IA de Colorimetria Capilar do mundo. Criada por quem vive essa realidade. Para quem vive essa realidade.</p>
     <div class="final-cta-wrap reveal">
-      <a href="#pricing" class="btn btn-gold">Quero Começar Agora</a>
+      <a href="https://wa.me/5500000000000?text=Quero%20adquirir%20a%20plataforma%20MS%20Color%20IA" target="_blank" rel="noopener" class="btn btn-gold">Quero Começar Agora</a>
       <a href="#demo" class="btn btn-outline">Ver a Demonstração</a>
     </div>
     <p class="final-trust reveal">Parcelável em até 12x · Suporte completo · Acesso imediato</p>
@@ -733,5 +663,59 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
+
+<script>
+  // ─── Hero video: play with sound on load ───────────────────
+  (function () {
+    var video = document.getElementById('hero-video');
+    if (!video) return;
+
+    function tryPlay() {
+      var promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(function () {
+          // Autoplay with sound was blocked — show overlay button
+          showPlayOverlay();
+        });
+      }
+    }
+
+    function showPlayOverlay() {
+      var overlay = document.createElement('div');
+      overlay.id = 'hero-play-overlay';
+      overlay.innerHTML = '<div class="hero-play-btn"><span>▶</span></div>';
+      overlay.style.cssText = [
+        'position:absolute', 'inset:0', 'display:flex',
+        'align-items:center', 'justify-content:center',
+        'background:rgba(26,21,16,0.55)', 'cursor:pointer',
+        'z-index:10', 'border-radius:4px'
+      ].join(';');
+      var btn = overlay.querySelector('.hero-play-btn');
+      btn.style.cssText = [
+        'width:72px', 'height:72px', 'border-radius:50%',
+        'background:rgba(201,168,110,0.15)',
+        'border:2px solid rgba(201,168,110,0.7)',
+        'display:flex', 'align-items:center', 'justify-content:center',
+        'color:#C9A86E', 'font-size:26px', 'padding-left:4px',
+        'transition:transform 0.2s'
+      ].join(';');
+      overlay.addEventListener('mouseenter', function(){ btn.style.transform='scale(1.1)'; });
+      overlay.addEventListener('mouseleave', function(){ btn.style.transform='scale(1)'; });
+      overlay.addEventListener('click', function () {
+        video.muted = false;
+        video.play();
+        overlay.remove();
+      });
+      video.parentNode.style.position = 'relative';
+      video.parentNode.appendChild(overlay);
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      tryPlay();
+    } else {
+      window.addEventListener('DOMContentLoaded', tryPlay);
+    }
+  })();
+</script>
 </body>
 </html>

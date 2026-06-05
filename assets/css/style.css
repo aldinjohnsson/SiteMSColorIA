@@ -550,11 +550,6 @@ nav {
   overflow: hidden;
 }
 
-.comparison-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
 .comparison-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(36px, 4vw, 52px);
@@ -563,14 +558,21 @@ nav {
   margin-bottom: 60px;
 }
 
-.comparison-table {
-  border-collapse: collapse;
-  width: 100%;
+/* New card-based layout (no scroll needed) */
+.comparison-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.comparison-table th {
+.comparison-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-col-header {
   padding: 20px 32px;
   font-size: 11px;
   letter-spacing: 3px;
@@ -578,37 +580,40 @@ nav {
   font-weight: 500;
 }
 
-.comparison-table th:first-child {
+.comparison-col-before .comparison-col-header {
   text-align: left;
   color: var(--muted);
   background: rgba(44, 40, 32, 0.5);
 }
 
-.comparison-table th:last-child {
+.comparison-col-after .comparison-col-header {
   color: var(--gold);
   background: rgba(201,168,110,0.1);
   border: 1px solid rgba(201,168,110,0.2);
 }
 
-.comparison-table td {
+.comparison-row-item {
   padding: 16px 32px;
   font-size: 14px;
   border-bottom: 1px solid rgba(201,168,110,0.08);
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-.comparison-table td:first-child {
+.comparison-col-before .comparison-row-item {
   color: var(--muted);
   background: rgba(44, 40, 32, 0.3);
 }
 
-.comparison-table td:last-child {
+.comparison-col-after .comparison-row-item {
   color: var(--cream);
   background: rgba(201,168,110,0.06);
   border-left: 1px solid rgba(201,168,110,0.2);
   border-right: 1px solid rgba(201,168,110,0.2);
 }
 
-.comparison-table tr:last-child td:last-child {
+.comparison-col-after .comparison-row-item:last-child {
   border-bottom: 1px solid rgba(201,168,110,0.2);
 }
 
@@ -1232,10 +1237,14 @@ footer {
    RESPONSIVE — MOBILE FIRST
    ══════════════════════════════════════════════════ */
 
-/* ─── TABLET (≤ 1024px) ─────────────────────────── */
-@media (max-width: 1024px) {
-  .pospago-left  { padding: 44px 32px; }
-  .pospago-right { padding: 44px 32px; }
+/* ─── LARGE TABLET (≤ 1100px) ───────────────────── */
+@media (max-width: 1100px) {
+  .packs-grid          { grid-template-columns: repeat(2, 1fr); }
+  .products-grid       { gap: 16px; }
+  .product-card        { padding: 36px 24px; }
+  .product-name        { font-size: 28px; }
+  .pospago-left        { padding: 44px 32px; }
+  .pospago-right       { padding: 44px 32px; }
 }
 
 /* ─── TABLET (≤ 900px) ───────────────────────────── */
@@ -1243,28 +1252,39 @@ footer {
   .section    { padding: 72px 0; }
   .section-sm { padding: 48px 0; }
 
-  /* Products */
-  .products-grid {
+  /* Hero */
+  .hero-grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+    gap: 48px;
   }
-
-  /* Steps */
-  .steps { grid-template-columns: 1fr; }
-  .steps::before { display: none; }
-  .step-img { margin: 24px -24px -32px; }   /* sync with step padding */
-
-  /* Features */
-  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-visual {
+    max-height: 480px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
 
   /* About */
   #about .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .about-image { max-height: 360px; aspect-ratio: auto; }
+  .about-image {
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
+    border-radius: 0;
+  }
+
+  /* Features */
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Products */
+  .products-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   /* Packs */
   .packs-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1276,9 +1296,9 @@ footer {
     border-right: none;
     border-bottom: 1px solid rgba(201,168,110,0.1);
   }
-  .pospago-right { padding: 32px 32px; }
+  .pospago-right { padding: 32px; }
 
-  /* Comparison table */
+  /* Plan comparison CTA row */
   .comp-cta-row { grid-template-columns: 1fr; gap: 12px; }
   .comp-cta-row > div:not(:first-child) { text-align: left; }
 }
@@ -1303,10 +1323,9 @@ footer {
   #hero { padding-top: 72px; min-height: auto; padding-bottom: 60px; }
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
   .hero-visual {
-    display: block;
     aspect-ratio: 9/16;
     max-height: 420px;
     width: 100%;
@@ -1333,39 +1352,31 @@ footer {
 
   /* ── About ── */
   #about .about-grid { grid-template-columns: 1fr; gap: 32px; }
-  .about-image  { max-height: 280px; aspect-ratio: auto; }
+  .about-image  { max-height: none; aspect-ratio: 3/4; width: 100%; max-width: 340px; margin: 0 auto; }
   .about-title  { font-size: clamp(26px, 7vw, 40px); }
   .about-text   { font-size: 14px; }
-  .about-credits { flex-direction: column; gap: 16px; }
-
-  /* ── How it works ── */
-  .steps { grid-template-columns: 1fr; gap: 2px; }
-  .steps::before { display: none; }
-  .step { padding: 36px 24px 32px; }
-  .step-num { width: 60px; height: 60px; font-size: 24px; }
-  .step-img { margin: 24px -24px -32px; } /* match padding */
+  .about-credits { flex-direction: column; gap: 16px; align-items: center; text-align: center; }
+  .gold-line-left { margin: 20px auto; }
 
   /* ── Demo ── */
   .demo-title { font-size: clamp(26px, 7vw, 40px); }
   .demo-sub   { font-size: 14px; margin-bottom: 40px; }
-  .demo-video { max-width: min(280px, 100%); }
-  .demo-video .visual-placeholder { min-height: 360px; }
+  .demo-video { max-width: min(300px, 100%); }
+  .demo-video-player { border-radius: 8px; }
 
   /* ── Features ── */
   .features-grid { grid-template-columns: 1fr; gap: 2px; }
   .feature { padding: 28px 20px; }
 
-  /* ── Before/After comparison — scrollable ── */
+  /* ── Before/After comparison — responsive cards ── */
   .comparison-title { font-size: clamp(24px, 7vw, 38px); margin-bottom: 32px; }
-  .comparison-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .comparison-table { min-width: 460px; }
-  .comparison-table th,
-  .comparison-table td { padding: 12px 14px; font-size: 13px; }
+  .comparison-col-header { padding: 14px 20px; font-size: 10px; }
+  .comparison-row-item { padding: 12px 20px; font-size: 13px; }
 
   /* ── Testimonial ── */
   .quote-mark       { font-size: 80px; margin-bottom: 20px; }
   .testimonial-text { font-size: clamp(17px, 5vw, 24px); }
-  .whatsapp-img     { max-width: 100%; }
+  .whatsapp-img     { max-width: 100%; border-radius: 8px; }
 
   /* ── Pricing / Products ── */
   .products-grid {
@@ -1375,7 +1386,6 @@ footer {
   }
   .product-card { padding: 32px 20px; }
   .product-name { font-size: 26px; }
-  /* Badge repositioned inline instead of absolute on mobile */
   .product-badge {
     position: static;
     display: inline-block;
@@ -1391,14 +1401,14 @@ footer {
     left: auto;
     transform: none;
   }
-  .plan-option        { padding: 12px 12px; flex-wrap: wrap; }
-  .plan-right         { flex-shrink: 0; }
-  .plan-price         { font-size: 22px; }
-  .plan-period        { font-size: 12px; }
+  .plan-option  { padding: 12px; flex-wrap: wrap; }
+  .plan-right   { flex-shrink: 0; }
+  .plan-price   { font-size: 22px; }
+  .plan-period  { font-size: 12px; }
 
   /* ── Credits toggle ── */
-  .credits-toggle   { flex-direction: column; }
-  .credits-tab      {
+  .credits-toggle { flex-direction: column; }
+  .credits-tab {
     padding: 14px 20px;
     flex-direction: row;
     gap: 12px;
@@ -1409,12 +1419,13 @@ footer {
   .credits-tab-label { font-size: 13px; }
   .credits-tab-sub   { font-size: 11px; }
 
-  /* ── Packs grid — 2 colunas no mobile ── */
+  /* ── Packs grid ── */
   .packs-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 100%;
     gap: 12px;
   }
+  .pack-card .btn { margin: 0 16px 16px; width: calc(100% - 32px) !important; }
 
   /* ── Credits info ── */
   .credits-info { grid-template-columns: 1fr; }
@@ -1437,11 +1448,15 @@ footer {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 8px;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .comp-table         { min-width: 520px; }
   .comp-table th,
-  .comp-table td      { padding: 10px 10px; font-size: 11px; }
-  .comp-table td:first-child { font-size: 11px; max-width: 120px; word-break: normal; }
+  .comp-table td      { padding: 10px; font-size: 11px; }
+  .comp-table td:first-child { font-size: 11px; max-width: 140px; }
   .comp-cta-row       { grid-template-columns: 1fr; gap: 10px; }
   .comp-cta-row > div { text-align: center; }
   .comp-cta-row .btn  { width: 100%; display: block; text-align: center; }
@@ -1473,38 +1488,54 @@ footer {
   .hero-stats  { justify-content: space-between; }
   .hero-tag    { font-size: 8px; }
   .hero-visual { max-height: 360px; max-width: 260px; }
+  #hero        { padding-bottom: 48px; }
 
   /* Label */
   .label { font-size: 9px; letter-spacing: 3px; }
 
-  /* Steps */
-  .step     { padding: 28px 16px 24px; }
-  .step-img { margin: 20px -16px -24px; }
+  /* Pain */
+  .pain-item { padding: 16px; font-size: 13px; }
+  .pain-pivot { font-size: 20px; }
+
+  /* About */
+  .about-image { max-height: none; max-width: 280px; }
+  .about-title { font-size: clamp(24px, 8vw, 34px); }
+  .credit-name { font-size: 18px; }
 
   /* Features */
   .feature { padding: 24px 16px; }
+  .feature-title { font-size: 20px; }
 
-  /* Pain */
-  .pain-item { padding: 16px; font-size: 13px; }
+  /* Demo */
+  .demo-video { max-width: 100%; }
 
-  /* Before/After table */
-  .comparison-table { min-width: 400px; }
-  .comparison-table th,
-  .comparison-table td { padding: 10px 10px; font-size: 12px; }
+  /* Before/After */
+  .comparison-row-item { padding: 10px 14px; font-size: 12px; }
+
+  /* Testimonial */
+  .quote-mark { font-size: 64px; }
 
   /* Products */
   .product-card { padding: 28px 16px; }
-  .plan-option  { padding: 10px 10px; }
+  .product-name { font-size: 24px; }
+  .plan-option  { padding: 10px; }
   .plan-price   { font-size: 20px; }
+  .period-btn   { font-size: 10px; padding: 8px; }
 
-  /* Packs — 1 coluna em telas muito pequenas */
+  /* Packs — 1 coluna em telas pequenas */
   .packs-grid { grid-template-columns: 1fr; max-width: 100%; }
+  .pack-card .btn { margin: 0 12px 12px; width: calc(100% - 24px) !important; }
+  .pack-price strong { font-size: 36px; }
 
   /* Credits info */
   .credits-info-item { padding: 12px 14px; font-size: 12px; }
+  .credits-tab { padding: 12px 16px; }
+  .credits-tab-sub { display: none; }
 
   /* Pospago */
   .pospago-price-value { font-size: 36px; }
+  .pospago-left  { padding: 28px 18px; }
+  .pospago-right { padding: 24px 18px; }
 
   /* Plan comparison table */
   .comp-table { min-width: 380px; }
@@ -1512,20 +1543,16 @@ footer {
   .comp-table td { padding: 7px 6px; font-size: 10px; }
   .comp-table td:first-child { font-size: 10px; }
   .comp-table .cat-row td { font-size: 9px; letter-spacing: 1px; padding: 8px 6px; }
-  .comp-table tr td[style*="font-size:22px"] { font-size: 16px !important; }
 
   /* FAQ */
   .faq-q { padding: 16px; font-size: 13px; }
-  .faq-a { padding: 0 16px 14px; }
-
-  /* Demo */
-  .demo-video { max-width: 100%; }
-  .demo-video .visual-placeholder { min-height: 300px; }
-
-  /* Credits tab */
-  .credits-tab { padding: 14px 16px; }
-  .credits-tab-sub { display: none; }
+  .faq-a { padding: 0 16px 14px; font-size: 12px; }
 
   /* Final CTA */
-  .final-cta-wrap .btn { max-width: 100%; }
+  .final-title { font-size: clamp(26px, 9vw, 40px); }
+  .final-cta-wrap .btn { max-width: 100%; padding: 15px 20px; }
+  .final-trust { font-size: 9px; letter-spacing: 1px; }
+
+  /* Footer */
+  .footer-logo { font-size: 16px; }
 }
